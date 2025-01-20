@@ -1,0 +1,36 @@
+CONSUME API (Android app & Web)
+
+BASE URL = http://localhost:3000/
+
+======================================
+A) User API
+1. Register user
+/api/users/register (POST)
+
+2. Login user
+/api/users/login (POST)
+
+======================================
+B) Video API
+1. Upload Video (POST)
+/api/videos/upload
+
+2. Get All Videos (GET)
+/api/videos
+
+3. Get video by user (GET)
+/api/videos/:user_id
+
+4. Delete video (DELETE)
+/api/videos/:video_id
+
+======================================
+C) Photo API
+1. Upload Photo (POST)
+/api/photos/upload
+
+2. Get Photo by User (GET)
+/api/photos/:user_id
+
+3. Delete PHOTO (DELETE)
+/api/photos/:photo_id
