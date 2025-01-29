@@ -27,14 +27,14 @@ Body-type = raw atau form-data
 /api/videos/upload
 
 2. Get All Videos (GET)	// Semua video langsung keluar
-/api/videos
+/api/videos/videos
 
 3. Get video by user (GET)
-/api/videos/:user_id
+/api/videos/user/:user_id
 
 4. Delete video (DELETE)
 Body-type = ga perlu
-/api/videos/:video_id
+/api/videos/videos/:video_id
 
 ======================================
 C) Photo API
