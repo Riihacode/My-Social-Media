@@ -1,7 +1,12 @@
 const db = require('../../db');
 
 const validateUserId = async (req, res, next) => {
-    const { user_id } = req.body;
+    // const { user_id } = req.params;
+    const user_id = req.body.user_id || req.params.user_id;
+
+    if (!user_id || isNaN(user_id)){
+        return res.status(400).json({ error: "Invalid user ID" });
+    }
 
     try {
         // Validasi eksistensi user_id

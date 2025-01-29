@@ -2,14 +2,16 @@ const db = require('../db');
 const fs = require('fs');
 const path = require('path');
 const moment = require('moment-timezone');
+const { error } = require('console');
 
 // Upload Video
 const uploadVideo = async (req, res) => {
     const { user_id, title, description} = req.body;
 
     const video_url = `/video-uploaded/${req.file.filename}`;
-    const timestamp = moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss');    // Timestamp aktivitas asia jakarta
-
+    // const timestamp = moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss');    // Timestamp aktivitas asia jakarta
+    const timestamp = moment.utc().format('YYYY-MM-DD HH:mm:ss');
+    
     try {
         // Insert video ke database
         const [result] = await db.query(
@@ -35,8 +37,15 @@ const uploadVideo = async (req, res) => {
 // Get all video
 const getAllVideos = async (req, res) =>{
     try {
+        /*
         const [videos] = await db.query(
             `SELECT v.id, v.description, v.video_url, v.uploaded_at, u.username
+            FROM videos v
+            JOIN users u ON v.user_id = u.id`
+        );
+        */
+        const [videos] = await db.query(
+            `SELECT v.id, v.description, v.video_url, CONVERT_TZ(v.uploaded_at, '+00:00', '+07:00') AS uploaded_at, u.username
             FROM videos v
             JOIN users u ON v.user_id = u.id`
         );
@@ -62,8 +71,18 @@ const getVideosByUser = async (req, res) => {
 
     try {
         // Query ke database
+        /*
         const [videos] = await db.query(
-            `SELECT id, title, description, video_url, uploaded_at FROM videos WHERE user_id = ?`,
+            `SELECT id, title, description, video_url, uploaded_at 
+            FROM videos 
+            WHERE user_id = ?`,
+            [user_id]
+        );
+        */
+        const [videos] = await db.query(
+            `SELECT id, title, description, video_url, CONVERT_TZ(uploaded_at, '+00:00', '+07:00') AS uploaded_at 
+            FROM videos 
+            WHERE user_id = ?`,
             [user_id]
         );
 
@@ -260,6 +279,28 @@ const updateVideoThumbnail = async (req, res) => {
     }
 };
 
+const getVideoId = async (req, res) => {
+    const { video_id } = req.params;
+
+    try {
+        const [videos] = await db.query (
+            `SELECT id, title, description, video_url, uploaded_at, user_id
+            FROM videos WHERE id = ?`,
+            [video_id]
+        );
+
+        if (videos.length === 0) {
+            return res.status(404).json({ error: "Video not found" });
+        }
+
+        console.log(`[GET-VIDEO-DETAIL] GET video: ${videos[0]}`);
+        res.status(200).json(videos[0]);
+    } catch (error) {
+        console.log(`[GET-VIDEO-DETAIL-ERROR] ${error.message}`);
+        res.status(500).json({ error: error.message });
+    } 
+};
+
 module.exports = { 
     uploadVideo, 
     getAllVideos, 
@@ -268,5 +309,6 @@ module.exports = {
     uploadVideoThumbnail, 
     getVideoThumbnail, 
     deleteVideoThumbnail, 
-    updateVideoThumbnail 
+    updateVideoThumbnail,
+    getVideoId 
 };
