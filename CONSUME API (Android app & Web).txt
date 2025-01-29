@@ -4,33 +4,47 @@ BASE URL = http://localhost:3000/
 
 ======================================
 A) User API
-1. Register user
-/api/users/register (POST)
+1. Register user (POST)
+Body-type = raw atau x-www-form-urlencoded
+/api/users/register 
 
-2. Login user
-/api/users/login (POST)
+2. Login user (POST)
+Body-type = raw atau x-www-form-urlencoded
+/api/users/login 
+
+3. Delete user (DELETE)
+Body-type = ga perlu
+/api/users/:user_id
+
+4. Upload photo profile (POST)
+Body-type = raw atau x-www-form-urlencoded
+/api/users/profile-pic/16
 
 ======================================
 B) Video API
 1. Upload Video (POST)
+Body-type = raw atau form-data
 /api/videos/upload
 
-2. Get All Videos (GET)
+2. Get All Videos (GET)	// Semua video langsung keluar
 /api/videos
 
 3. Get video by user (GET)
 /api/videos/:user_id
 
 4. Delete video (DELETE)
+Body-type = ga perlu
 /api/videos/:video_id
 
 ======================================
 C) Photo API
 1. Upload Photo (POST)
+Body-type = raw atau form-data
 /api/photos/upload
 
-2. Get Photo by User (GET)
+2. Get Photo by User (GET)	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
 /api/photos/:user_id
 
-3. Delete PHOTO (DELETE)
+3. Delete Photo (DELETE)
+Body-type = ga perlu
 /api/photos/:photo_id
