@@ -26,15 +26,15 @@ B) Video API
 Body-type = raw atau form-data
 /api/videos/upload
 
-2. Get All Videos (GET)	// Semua video langsung keluar
+2. Get All Videos (GET)	// Semua video langsung keluar (digunakan di halaman homepage)
 /api/videos/videos
 
-3. Get video by user (GET)
+3. Get video by user (GET)	// Meanmpilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
 /api/videos/user/:user_id
 
 4. Delete video (DELETE)
 Body-type = ga perlu
-/api/videos/videos/:video_id
+/api/videos/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
 
 ======================================
 C) Photo API
@@ -42,7 +42,7 @@ C) Photo API
 Body-type = raw atau form-data
 /api/photos/upload
 
-2. Get Photo by User (GET)	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
+2. Get Photo by User (GET)	
 /api/photos/:user_id
 
 3. Delete Photo (DELETE)
