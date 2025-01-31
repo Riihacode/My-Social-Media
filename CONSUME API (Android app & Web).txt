@@ -1,50 +1,63 @@
 CONSUME API (Android app & Web)
 
 BASE URL = http://localhost:3000/
-
 ======================================
 A) User API
 1. Register user (POST)
 Body-type = raw atau x-www-form-urlencoded
-/api/users/register 
+Body request = username, email, password
+endpoint = /api/users/register 
 
 2. Login user (POST)
 Body-type = raw atau x-www-form-urlencoded
-/api/users/login 
+Body request = email, password
+endpoint = /api/users/login 
 
 3. Delete user (DELETE)
-Body-type = ga perlu
-/api/users/:user_id
+Body-type = tidak perlu
+endpoint = /api/users/:user_id
 
 4. Upload photo profile (POST)
 Body-type = raw atau x-www-form-urlencoded
-/api/users/profile-pic/16
+Body request = profile_pic, user_id
+endpoint = /api/users/profile-pic/16
 
 ======================================
 B) Video API
 1. Upload Video (POST)
 Body-type = raw atau form-data
-/api/videos/upload
+Body request = user_id, title, description, dan file (diwakili dengan video_url yang diambil dari folder kita)
+endpoint = /api/videos/upload
 
 2. Get All Videos (GET)	// Semua video langsung keluar (digunakan di halaman homepage)
-/api/videos/videos
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/videos/videos
 
-3. Get video by user (GET)	// Meanmpilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
-/api/videos/user/:user_id
+3. Get video by user (GET)	// Menampilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/videos/user/:user_id
 
 4. Delete video (DELETE)
-Body-type = ga perlu
-/api/videos/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/videos/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
 
 ======================================
 C) Photo API
 1. Upload Photo (POST)
 Body-type = raw atau form-data
-/api/photos/upload
+Body request = user_id, title, dan file (diwakili dengan photo_url yang diambil dari folder kita)
 
-2. Get Photo by User (GET)	
-/api/photos/:user_id
+endpoint = /api/photos/upload
+
+2. Get Photo by User (GET)
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint =/api/photos/:user_id
 
 3. Delete Photo (DELETE)
-Body-type = ga perlu
-/api/photos/:photo_id
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/photos/:photo_id
