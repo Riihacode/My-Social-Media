@@ -185,7 +185,7 @@ const getVideoThumbnail = async  (req, res) => {
     try {
         // Cari video berdasarkan ID
         const [videos] = await db.query(
-            `SELECT ud, title, description, video_url, uploaded_at FROM videos WHERE id =?`,
+            `SELECT id, title, description, video_url, uploaded_at FROM videos WHERE id =?`,
             [video_id]
         );
 

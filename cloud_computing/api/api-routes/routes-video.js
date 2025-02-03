@@ -20,7 +20,7 @@ const router = express.Router();
 
 // Endpoint untuk video
 router.post('/upload', upload.single('video_url'), validateUserId, validateVideoUpload, uploadVideo);
-router.get('/', getAllVideos);
+router.get('/videos', getAllVideos);
 router.get('/user/:user_id', validateUserId, syncVideosWithStorage, getVideosByUser);
 router.delete('/videos/:video_id', validateVideoId, deleteVideo);
 router.get('/videos/:video_id', validateVideoId, getVideoId);
