@@ -4,7 +4,7 @@ const path = require('path');
 // Konfigurasi penyimpanan file
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'profile-uploaded');
+        cb(null, 'uploaded-user-photo-profile');
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));

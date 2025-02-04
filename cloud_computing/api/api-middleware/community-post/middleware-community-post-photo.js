@@ -4,7 +4,7 @@ const path = require('path');
 // Konfigurasi penyimpanan file
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'photo-uploaded/'); // Folder tempat file disimpan
+        cb(null, 'uploaded-community-post-photo/'); // Folder tempat file disimpan
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname)); // Nama file unik
@@ -21,6 +21,7 @@ const fileFilter = (req, file, cb) => {
         cb(new Error('Only image files are allowed!'), false);
     }
 };
+
 
 // inisialisasi multer
 const upload = multer({ 

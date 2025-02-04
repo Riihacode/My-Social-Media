@@ -98,7 +98,7 @@ const deleteUser = async(req, res) => {
 // POST user profile picture
 const uploadProfilePic = async (req, res) => {
     const { user_id } = req.body ;
-    const profile_pic = `/profile-uploaded/${req.file.filename}`; // URL file photo profile
+    const profile_pic = `/uploaded-user-photo-profile/${req.file.filename}`; // URL file photo profile
     
     try {
         // Update kolom profile_pic di tabel users
@@ -177,7 +177,7 @@ const deleteProfilePic = async (req, res) => {
 
 const updateProfilePic = async (req, res) => {
     const { user_id } = req.params;
-    const newProfilePicUrl = `/profile-uploaded/${req.file.filename}`;  // File baru yang diunggah
+    const newProfilePicUrl = `/uploaded-user-photo-profile/${req.file.filename}`;  // File baru yang diunggah
 
     try {
         // Cari file foto profil lama di database

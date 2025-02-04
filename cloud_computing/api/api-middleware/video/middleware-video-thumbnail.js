@@ -4,7 +4,7 @@ const path = require('path');
 // Konfigurasi penyimpanan file
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '..', 'thumbnail-uploaded')); // Folder penyimpanan thumbnail
+        cb(null, path.join(__dirname, '..', 'uploaded-video-thumbnail')); // Folder penyimpanan thumbnail
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + '-' + file.originalname); // Nama file dengan timestamp

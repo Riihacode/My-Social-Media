@@ -4,7 +4,7 @@ const path = require('path');
 //Konfigurasi penyimpanan file video
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'video-uploaded/'); // Folder tempat menyimpan file video
+        cb(null, 'uploaded-video/'); // Folder tempat menyimpan file video
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname)); // Nama file unik dengan timestamp

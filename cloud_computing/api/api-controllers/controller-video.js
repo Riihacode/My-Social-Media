@@ -8,7 +8,7 @@ const { error } = require('console');
 const uploadVideo = async (req, res) => {
     const { user_id, title, description} = req.body;
 
-    const video_url = `/video-uploaded/${req.file.filename}`;
+    const video_url = `/uploaded-video/${req.file.filename}`;
     // const timestamp = moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss');    // Timestamp aktivitas asia jakarta
     const timestamp = moment.utc().format('YYYY-MM-DD HH:mm:ss');
     
@@ -155,7 +155,7 @@ const deleteVideo = async (req, res) => {
 
 const uploadVideoThumbnail = async (req, res) => {
     const { video_id } = req.params;
-    const thumbnail_url = `/thumbnail-uploaded/${req.file.filename}`;   // URL file thumbnail
+    const thumbnail_url = `/uploaded-video-thumbnail/${req.file.filename}`;   // URL file thumbnail
 
     try {
         // debugging untuk melihat file yang diterima
