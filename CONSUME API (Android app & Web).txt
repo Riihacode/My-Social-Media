@@ -20,7 +20,7 @@ endpoint = /api/users/:user_id
 4. Upload photo profile (POST)
 Body-type = raw atau x-www-form-urlencoded
 Body request = profile_pic, user_id
-endpoint = /api/users/profile-pic/16
+endpoint = /api/users/profile-pic/:user_id
 
 ======================================
 B) Video API
@@ -39,7 +39,12 @@ Body-type = tidak perlu
 Body request = tidak perlu
 endpoint = /api/videos/user/:user_id
 
-4. Delete video (DELETE)
+4. Get video that you clicked (GET)
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/videos/videos/:video_id
+
+5. Delete video (DELETE)
 Body-type = tidak perlu
 Body request = tidak perlu
 endpoint = /api/videos/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
@@ -49,15 +54,14 @@ C) Photo API
 1. Upload Photo (POST)
 Body-type = raw atau form-data
 Body request = user_id, title, dan file (diwakili dengan photo_url yang diambil dari folder kita)
-
-endpoint = /api/photos/upload
+endpoint = /api/community-post/upload
 
 2. Get Photo by User (GET)
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint =/api/photos/:user_id
+endpoint =/api/community-post/:user_id
 
 3. Delete Photo (DELETE)
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/photos/:photo_id
+endpoint = /api/community-post/:photo_id

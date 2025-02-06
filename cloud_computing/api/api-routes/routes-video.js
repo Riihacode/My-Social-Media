@@ -1,4 +1,9 @@
 const express = require('express');
+
+const videoController = require('../api-controllers/controller-video');
+
+console.log(videoController); // Debugging isi objek yang diimpor
+
 const { 
     uploadVideo, 
     getAllVideos, 
@@ -11,12 +16,18 @@ const {
     getVideoId
 } = require                             ('../api-controllers/controller-video');
 const upload = require                  ('../api-middleware/video/middleware-video');   // Import konfigurasi multer
-const uploadThumbnail = require         ('../api-middleware/video/middleware-video-thumbnail');
-const validateVideoUpload = require     ('../api-middleware/community-post/middleware-community-post-photo');
 const validateUserId = require          ('../api-middleware/user/middleware-user-validateUserId');
+const validateVideoUpload = require     ('../api-middleware/community-post/middleware-community-post-validate');
+const uploadThumbnail = require         ('../api-middleware/video/middleware-video-thumbnail');
 const validateVideoId = require         ('../api-middleware/video/middleware-video-validateVideoId');
 const syncVideosWithStorage = require   ('../api-middleware/video/middleware-video-syncWithStorage');
 const router = express.Router();
+
+console.log(typeof uploadVideo);  // Harus "function"
+console.log(typeof validateUserId);  // Harus "function"
+console.log(typeof validateVideoUpload);  // Harus "function"
+console.log(typeof upload.single);  // Harus "function"
+
 
 // Endpoint untuk video
 router.post('/upload', upload.single('video_url'), validateUserId, validateVideoUpload, uploadVideo);

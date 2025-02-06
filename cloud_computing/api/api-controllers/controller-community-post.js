@@ -6,7 +6,7 @@ const moment = require('moment-timezone');
 // Upload Photo
 const uploadCommunityPostPhoto = async(req, res) => {
     const { user_id, title } = req.body;
-    const post_photo_url = `/community-post-uploaded/${req.file.filename}`; // URL file foto yang diunggah
+    const post_photo_url = `/uploaded-community-post-photo/${req.file.filename}`; // URL file foto yang diunggah
     const timestamp = moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss'); // timestamp aktivitas asia jakarta
 
     try {
