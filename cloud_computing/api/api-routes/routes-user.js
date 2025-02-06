@@ -7,8 +7,8 @@ const {
     deleteProfilePic, 
     updateProfilePic 
 } = require('../api-controllers/controller-user');
-const router = express.Router();
 const uploadProfile = require('../api-middleware/user/middleware-user');
+const router = express.Router();
 
 // Endpoint register dan login
 router.post('/register', registerUser);

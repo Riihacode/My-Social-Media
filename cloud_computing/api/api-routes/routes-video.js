@@ -9,13 +9,13 @@ const {
     deleteVideoThumbnail,
     updateVideoThumbnail,
     getVideoId
-} = require('../api-controllers/controller-video');
-const upload = require('../api-middleware/video/middleware-video');   // Import konfigurasi multer
-const uploadThumbnail = require('../api-middleware/video/middleware-thumbnail');
-const validateVideoUpload = require('../api-middleware/photo/middleware-validate');
-const validateUserId = require('../api-middleware/user/middleware-validateUserId');
-const validateVideoId = require('../api-middleware/video/middleware-validateVideoId');
-const syncVideosWithStorage = require('../api-middleware/video/middleware-syncVideosWithStorage');
+} = require                             ('../api-controllers/controller-video');
+const upload = require                  ('../api-middleware/video/middleware-video');   // Import konfigurasi multer
+const uploadThumbnail = require         ('../api-middleware/video/middleware-video-thumbnail');
+const validateVideoUpload = require     ('../api-middleware/community-post/middleware-community-post-photo');
+const validateUserId = require          ('../api-middleware/user/middleware-user-validateUserId');
+const validateVideoId = require         ('../api-middleware/video/middleware-video-validateVideoId');
+const syncVideosWithStorage = require   ('../api-middleware/video/middleware-video-syncWithStorage');
 const router = express.Router();
 
 // Endpoint untuk video
