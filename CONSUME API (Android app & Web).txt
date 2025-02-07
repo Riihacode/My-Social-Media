@@ -53,7 +53,7 @@ endpoint = /api/videos/videos/:video_id	// Menampilkan detail video ketika clien
 C) Photo API
 1. Upload Photo (POST)
 Body-type = raw atau form-data
-Body request = user_id, title, dan file (diwakili dengan photo_url yang diambil dari folder kita)
+Body request = user_id, title, dan file (diwakili dengan post_photo_url yang diambil dari folder kita)
 endpoint = /api/community-post/upload
 
 2. Get Photo by User (GET)
