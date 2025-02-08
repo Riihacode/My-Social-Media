@@ -1,5 +1,6 @@
 package com.development.mysocialmedia.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -35,6 +36,10 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Registrasi gagal: ${response.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        binding.tvLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
 
             userViewModel.loginUser(email, password).observe(this) { response ->
-                if (response.status == "success" && response.user_id != null) {
+                if (response.status == "Login successful" && response.user_id != null) {
                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
 
                     // Simpan session login
@@ -45,6 +45,10 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             }
+        }
+
+        binding.tvRegister.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }
