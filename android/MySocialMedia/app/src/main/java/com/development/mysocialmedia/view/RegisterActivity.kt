@@ -30,8 +30,10 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
 
             userViewModel.registerUser(username, email, password).observe( this) { response ->
-                if (response.status == "success") {
+                if (response.message == "Register successful") {
                     Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
                 } else {
                     Toast.makeText(this, "Registrasi gagal: ${response.message}", Toast.LENGTH_SHORT).show()
                 }

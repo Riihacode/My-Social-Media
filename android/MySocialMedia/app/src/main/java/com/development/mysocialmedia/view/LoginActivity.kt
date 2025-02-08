@@ -32,11 +32,11 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
 
             userViewModel.loginUser(email, password).observe(this) { response ->
-                if (response.status == "Login successful" && response.user_id != null) {
+                if (response.message == "Login successful" && response.user != null) {
                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
 
                     // Simpan session login
-                    sessionManager.saveLoginSession(response.user_id, email)
+                    sessionManager.saveLoginSession(response.user.id, email)
 
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
