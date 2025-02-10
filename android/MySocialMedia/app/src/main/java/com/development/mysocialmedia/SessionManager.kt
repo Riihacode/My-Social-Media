@@ -12,11 +12,21 @@ class SessionManager(context: Context) {
         editor.putBoolean(KEY_IS_LOGGED_IN, true)
         editor.putInt(KEY_USER_ID, userId)
         editor.putString(KEY_EMAIL, email)
+        editor.putBoolean(KEY_IS_FIRST_LOGIN, true) // tandai sebagai login pertama kali
         editor.apply()
     }
 
     fun isLoggedIn(): Boolean {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
+    }
+
+    fun isFirstLogin(): Boolean {
+        return sharedPreferences.getBoolean(KEY_IS_FIRST_LOGIN, false)
+    }
+
+    fun setFirstLogin(value: Boolean) {
+        editor.putBoolean(KEY_IS_FIRST_LOGIN, value)
+        editor.apply()
     }
 
     fun getUserId(): Int {
@@ -37,5 +47,6 @@ class SessionManager(context: Context) {
         private const val KEY_IS_LOGGED_IN = "isLoggedIn"
         private const val KEY_USER_ID = "user_id"
         private const val KEY_EMAIL = "email"
+        private const val KEY_IS_FIRST_LOGIN = "isFirstLogin"
     }
 }

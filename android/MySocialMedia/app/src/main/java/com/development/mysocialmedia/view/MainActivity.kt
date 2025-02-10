@@ -27,7 +27,12 @@ class MainActivity : AppCompatActivity() {
         } else {
             val userId = sessionManager.getUserId()
             val email = sessionManager.getEmail()
-            Toast.makeText(this, "Welcome back, $email!", Toast.LENGTH_SHORT).show()
+
+            val isFirstLogin = sessionManager.isFirstLogin()
+            if (isFirstLogin) {
+                Toast.makeText(this, "Welcome back, $email!", Toast.LENGTH_SHORT).show()
+                sessionManager.setFirstLogin(false)
+            }
         }
 
         // Tombol logout
