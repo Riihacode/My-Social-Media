@@ -1,29 +1,24 @@
 package com.development.mysocialmedia.model
 
-import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-@Parcelize
 data class LoginResponse(
 
 	@field:SerializedName("message")
-	val message: String? = null,
+	val message: String,
 
 	@field:SerializedName("user")
-	val user: User? = null
-) : Parcelable
+	val user: User
+)
 
-@Parcelize
 data class User(
 
 	@field:SerializedName("id")
-	val id: Int? = null,
-
-	@field:SerializedName("username")
-	val username: String? = null,
+	val id: Int,
 
 	@field:SerializedName("email")
-	val email: String? = null
-	
-) : Parcelable
+	val email: String,
+
+	@field:SerializedName("username")
+	val username: String
+)

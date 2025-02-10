@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
 
             userViewModel.loginUser(email, password).observe(this) { response ->
-                if (response.message == "Login successful" && response.user != null) {
+                if (response.message == "Login successful" && response.user.id != -1) {             //user.id != -1 untuk validasi login sukses.
                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
 
                     // Simpan session login
