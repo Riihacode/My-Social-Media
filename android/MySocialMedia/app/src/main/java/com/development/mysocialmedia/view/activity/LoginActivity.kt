@@ -1,23 +1,19 @@
-package com.development.mysocialmedia.view
+package com.development.mysocialmedia.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.development.mysocialmedia.R
 import com.development.mysocialmedia.SessionManager
 import com.development.mysocialmedia.databinding.ActivityLoginBinding
-import com.development.mysocialmedia.viewmodel.UserViewModel
+import com.development.mysocialmedia.viewmodel.ViewModelUser
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sessionManager: SessionManager
-    private val userViewModel: UserViewModel by viewModels()
+    private val viewModelUser: ViewModelUser by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
-            userViewModel.loginUser(email, password).observe(this) { response ->
+            viewModelUser.loginUser(email, password).observe(this) { response ->
                 if (response.message == "Login successful" && response.user.id != -1) {             //user.id != -1 untuk validasi login sukses.
                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
 

@@ -1,4 +1,4 @@
-package com.development.mysocialmedia.view
+package com.development.mysocialmedia.view.activity
 
 import android.content.Intent
 import android.os.Bundle

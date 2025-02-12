@@ -2,7 +2,7 @@ package com.development.mysocialmedia.model
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class ResponseAuth(
 
 	@field:SerializedName("message")
 	val message: String,
