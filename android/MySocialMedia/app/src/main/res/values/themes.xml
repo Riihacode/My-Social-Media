@@ -3,6 +3,34 @@
     <style name="Base.Theme.MySocialMedia" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Override Warna Default Tombol
+        <item name="colorPrimary">@color/pink_500</item>
+        <item name="colorPrimaryContainer">@color/pink_500</item>
+
+        <item name="colorSurface">@color/pink_500</item>
+
+        <item name="colorButtonNormal">@color/pink_500</item>
+
+
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:colorPrimaryDark">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        -->
+        <!-- Warna utama untuk tombol -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryContainer">@color/black</item>
+
+        <!-- Warna Background
+        <item name="android:windowBackground">@color/white</item>-->
+        <item name="colorButtonNormal">@color/pink_500</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">@color/black</item>
     </style>
 
     <style name="Theme.MySocialMedia" parent="Base.Theme.MySocialMedia" />

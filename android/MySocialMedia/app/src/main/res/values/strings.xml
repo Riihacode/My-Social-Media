@@ -5,6 +5,12 @@
     <string name="title_upload">Upload</string>
     <string name="title_subscription">Subscription</string>
     <string name="title_account">Account</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_image">Profile Imagee</string>
+    <string name="edit_icon">Edit Icon</string>
+    <string name="checkbox">checkbox</string>
+    <string name="logout">Log Out</string>
+    <string name="email">Email\n</string>
+    <string name="username">Username</string>
 </resources>

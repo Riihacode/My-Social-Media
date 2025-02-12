@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style khusus untuk tombol Logout -->
+    <style name="CustomLogoutButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="cornerRadius">20dp</item> <!-- Untuk MaterialButton -->
+    </style>
+</resources>
