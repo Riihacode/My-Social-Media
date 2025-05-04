@@ -4,64 +4,110 @@ BASE URL = http://localhost:3000/
 ======================================
 A) User API
 1. Register user (POST)
-Body-type = raw atau x-www-form-urlencoded
+Body-type = raw-json atau x-www-form-urlencoded
 Body request = username, email, password
-endpoint = /api/users/register 
+endpoint = /api/users/register
 
 2. Login user (POST)
-Body-type = raw atau x-www-form-urlencoded
+Body-type = raw-json atau x-www-form-urlencoded
 Body request = email, password
-endpoint = /api/users/login 
+endpoint = /api/users/login
 
-3. Delete user (DELETE)
+3. Get User Details (GET)
+Endpoint: /api/users/:user_id
+
+4. Delete user (DELETE)
 Body-type = tidak perlu
 endpoint = /api/users/:user_id
 
-4. Upload photo profile (POST)
+5. Update Username (PUT)
+Content-Type: raw-json & x-www-form-urlencoded
+Body request: username
+Endpoint: /api/users/:user_id/username
+
+6. Upload photo profile (POST)
 Body-type = raw atau x-www-form-urlencoded
 Body request = profile_pic, user_id
-endpoint = /api/users/profile-pic/:user_id
+endpoint = /users/:user_id/profile-picture
+
+7. Update photo profile (PUT)
+Body-type = raw atau x-www-form-urlencoded
+Body request = profile_pic, user_id
+Endpoint = /api/users/:user_id/profile-picture
+
+8. Delete photo profile (DELETE)
+Endpoint = /api/users/:user_id/profile-picture
 
 ======================================
 B) Video API
 1. Upload Video (POST)
 Body-type = raw atau form-data
-Body request = user_id, title, description, dan file (diwakili dengan video_url yang diambil dari folder kita)
-endpoint = /api/videos/upload
+Body request = user_id, title, description, dan video_url (video_url adalah  file fisik yang diambil dari folder kita dan dikirim ke lokasi folder directory dari server API)
+endpoint = /api/users/:user_id/videos
 
 2. Get All Videos (GET)	// Semua video langsung keluar (digunakan di halaman homepage)
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/videos/videos
+endpoint = /api/videos
 
-3. Get video by user (GET)	// Menampilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
+3. Get video by viewer that they clicked (GET) // Menampilkan video yang diclick oleh penonton
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/videos/user/:user_id
+endpoint = /api/videos/:video_id
 
-4. Get video that you clicked (GET)
+4. Get youtuber video that you clicked (GET)	// Menampilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/videos/videos/:video_id
+endpoint = /api/users/:user_id/videos
 
 5. Delete video (DELETE)
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/videos/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
+endpoint = /api/videos/:video_id	// Menampilkan detail video ketika client penonton ingin melihat konten yg ditampilkan dari sebuah beranda
+
+6. Update video title & description (PUT)
+Body request = video_id, title, description
+Content-Type: raw jso, x-www-form-urlencoded
+endpoint = /api/videos/:video_id
+
+7. Post video thumbnail (POST)
+Body request = video_id & thumbnail_url
+Content-Type: form data
+endpoint = /api/videos/:video_id/thumbnail
+
+8. Update video thumbnail (PUT)
+Body request = video_id & thumbnail_url
+Content-Type: form data
+endpoint = /api/videos/:video_id/thumbnail
+
+9. Get video thumbnail (GET)
+Body request = -
+Content-Type: -
+endpoint = /api/videos/:video_id/thumbnail
+
+10. Delete video thumbnail (DELETE)
+Body request = -
+Content-Type: -
+endpoint = /api/videos/:video_id/thumbnail
 
 ======================================
 C) Photo API
 1. Upload Photo (POST)
-Body-type = raw atau form-data
+Body-type =  form-data
 Body request = user_id, title, dan file (diwakili dengan post_photo_url yang diambil dari folder kita)
-endpoint = /api/community-post/upload
+endpoint = /api/photos
 
-2. Get Photo by User (GET)
+2. Get Photo by User Channel Clicked (GET) // Semua community post photo yang diupload oleh pemilik channel
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint =/api/community-post/:user_id
+endpoint = /api/users/:user_id/photos
 
-3. Delete Photo (DELETE)
+3. Get Photo by User each Photo Clicked (GET) // hasil dari viewer tekan salah satu foto untuk dilihat detailnya
 Body-type = tidak perlu
 Body request = tidak perlu
-endpoint = /api/community-post/:photo_id
+endpoint = /photos/:photo_id
+
+4. Delete Photo (DELETE)
+Body-type = tidak perlu
+Body request = tidak perlu
+endpoint = /api/photos/:photo_id

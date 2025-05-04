@@ -1,6 +1,5 @@
 package com.development.mysocialmedia.view.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -37,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
-
      */
 
     private fun checkSessionUserLogin() {
