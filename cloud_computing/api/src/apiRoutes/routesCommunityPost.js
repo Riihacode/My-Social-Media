@@ -10,7 +10,8 @@ import validateCommunityPostBodyRequest from "../apiMiddleware/communityPost/mid
 
 const router = express.Router();
 
-router.post("/photos", upload.single("post_photo_url"), validateCommunityPostBodyRequest, uploadCommunityPostPhoto);
+// router.post("/photos", upload.single("post_photo_url"), validateCommunityPostBodyRequest, uploadCommunityPostPhoto);
+router.post("/photos", uploadCommunityPostPhoto);
 router.get("/users/:user_id/photos", getCommunityPostPhotosByUser);
 router.get("/photos/:photo_id", getCommunityPostPhotoById);
 router.delete("/photos/:photo_id", deleteCommunityPostPhoto);

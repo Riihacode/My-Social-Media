@@ -28,7 +28,7 @@ Endpoint: /api/users/:user_id/username
 6. Upload photo profile (POST)
 Body-type = raw atau x-www-form-urlencoded
 Body request = profile_pic, user_id
-endpoint = /users/:user_id/profile-picture
+endpoint = /api/users/:user_id/profile-picture
 
 7. Update photo profile (PUT)
 Body-type = raw atau x-www-form-urlencoded
