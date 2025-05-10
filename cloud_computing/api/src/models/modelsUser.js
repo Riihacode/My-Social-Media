@@ -10,6 +10,11 @@ const User = db.define(
             allowNull: false,
             unique: true
         },
+        slug: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,

@@ -12,6 +12,10 @@ const CommunityPostPhoto = db.define("community_post_photo", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     post_photo_url: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -29,7 +29,6 @@ console.log(typeof validateVideoUpload);    // Harus "function"
 console.log(typeof upload.single);          // Harus "function"
 
 // Video
-// router.post("/users/:user_id/videos", videoUploadLimiter, validateVideoUpload, validateUserId, upload.single("video_url"), uploadVideo);
 router.post("/users/:user_id/videos", videoUploadLimiter, uploadVideo);
 router.get("/videos", getAllVideos);
 router.get("/videos/:video_id", validateVideoId, getVideoId);
@@ -40,9 +39,7 @@ router.put("/videos/:video_id", validateVideoMetadata, upload.none(), updateVide
 router.get("/users/:user_id/videos", validateUserId, syncVideosWithStorage, getVideosByUser);
 
 // Thumbnail
-// router.post("/videos/:video_id/thumbnail", validateVideoId, uploadThumbnail.single("thumbnail_url"), uploadVideoThumbnail);
 router.post("/videos/:video_id/thumbnail", validateVideoId, uploadVideoThumbnail);
-// router.put("/videos/:video_id/thumbnail", validateVideoId, uploadThumbnail.single("thumbnail_url"), updateVideoThumbnail);
 router.put("/videos/:video_id/thumbnail", validateVideoId, updateVideoThumbnail);
 router.get("/videos/:video_id/thumbnail", validateVideoId, getVideoThumbnail);
 router.delete("/videos/:video_id/thumbnail", validateVideoId, deleteVideoThumbnail);

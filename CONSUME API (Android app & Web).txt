@@ -80,7 +80,7 @@ Body request = video_id & thumbnail_url
 Content-Type: form data
 endpoint = /api/videos/:video_id/thumbnail
 
-9. Get video thumbnail (GET)
+9. Get video thumbnail & video (GET)
 Body request = -
 Content-Type: -
 endpoint = /api/videos/:video_id/thumbnail
