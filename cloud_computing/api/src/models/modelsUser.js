@@ -1,5 +1,7 @@
 import { Sequelize } from "sequelize";
 import { db } from "../configDatabase/database.js";
+import CommunityPostPhoto from "./modelsCommunityPostPhoto.js"; // 🔁 Tambahkan ini
+import Video from "./modelsVideo.js";
 
 const { DataTypes } = Sequelize;
 
@@ -37,7 +39,6 @@ const User = db.define(
         timestamps: false,
     }
 );
-
 
 db.sync().then(() => console.log("Database Synchronized"));
 

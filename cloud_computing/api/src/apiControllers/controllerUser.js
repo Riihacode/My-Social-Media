@@ -3,27 +3,7 @@ import fs from "fs";
 import path from "path";
 import Busboy from "busboy";
 import slugify from "slugify";
-
-// async function registerUser(req, res) {
-//     const { username, email, password } = req.body;
-
-//     try {
-//         const newUser = await User.create({ username, email, password });
-
-//         console.log(`[REGISTER] New user registered: ID = ${newUser.id}, Username = ${username}, Email = ${email}`);
-//         res.status(201).json({ 
-//             message: "Register successful", 
-//             user: {
-//                 id: newUser.id,
-//                 username: newUser.username,
-//                 email: newUser.email,
-//             } 
-//         });
-//     } catch (error) {
-//         console.log(`[REGISTER-ERROR] Failed to register user: ${error.message}`);
-//         res.status(500).json({ error: error.message });
-//     }
-// }
+import { Sequelize, Op } from "sequelize";
 
 async function registerUser(req, res) {
     const { username, email, password } = req.body;
@@ -33,6 +13,19 @@ async function registerUser(req, res) {
     }
 
     try {
+        // ✅ 1. Validasi apakah email dan username sudah ada
+        const existingUser = await User.findOne({
+            where: {
+                [Op.or]: [{ email }]
+            }
+        });
+
+        if (existingUser) {
+            return res.status(409).json({
+                error: "Email already exists"
+            });
+        }
+
         // Buat slug awal
         let baseSlug = slugify(username, { lower: true, strict: true });
 

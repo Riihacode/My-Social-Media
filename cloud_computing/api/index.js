@@ -3,6 +3,8 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import "./src/models/initModels.js"; // agar relasi aktif
+
 // Routes
 import routesUser from "./src/apiRoutes/routesUser.js";
 import routesVideo from "./src/apiRoutes/routesVideo.js";

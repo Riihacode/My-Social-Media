@@ -3,16 +3,15 @@ import {
     uploadCommunityPostPhoto, 
     getCommunityPostPhotosByUser, 
     getCommunityPostPhotoById,
-    deleteCommunityPostPhoto 
+    deleteCommunityPostPhoto,
+    getCommunityPostsBySlug
 } from                                  "../apiControllers/controllerCommunityPost.js";
-import upload from                      "../apiMiddleware/communityPost/middlewareCommunityPostPhoto.js";
-import validateCommunityPostBodyRequest from "../apiMiddleware/communityPost/middlewareCommunityPostValidate.js";
 
 const router = express.Router();
 
-// router.post("/photos", upload.single("post_photo_url"), validateCommunityPostBodyRequest, uploadCommunityPostPhoto);
 router.post("/photos", uploadCommunityPostPhoto);
-router.get("/users/:user_id/photos", getCommunityPostPhotosByUser);
+// router.get("/users/:user_id/photos", getCommunityPostPhotosByUser);
+router.get("/channels/:slug/community", getCommunityPostsBySlug);
 router.get("/photos/:photo_id", getCommunityPostPhotoById);
 router.delete("/photos/:photo_id", deleteCommunityPostPhoto);
 

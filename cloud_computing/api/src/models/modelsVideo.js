@@ -34,7 +34,4 @@ const Video = db.define("videos", {
     timestamps: false
 });
 
-// Tambahkan relasi ini
-Video.belongsTo(User, { foreignKey: "user_id" });
-
 export default Video;
