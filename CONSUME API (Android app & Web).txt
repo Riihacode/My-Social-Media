@@ -26,7 +26,7 @@ Body request: username
 Endpoint: /api/users/:user_id/username
 
 6. Upload photo profile (POST)
-Body-type = raw atau x-www-form-urlencoded
+Body-type = form-data
 Body request = profile_pic, user_id
 endpoint = /api/users/:user_id/profile-picture
 
@@ -55,7 +55,7 @@ Body-type = tidak perlu
 Body request = tidak perlu
 endpoint = /api/videos/:video_id
 
-4. Get youtuber video that you clicked (GET)	// Menampilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
+4. Get youtuber video that you clicked (GET) [HAPUS]	// Menampilkan kumpulan video yg telah diupload oleh pemilik channel ketika client penonton ingin memilih salah satu video mereka
 Body-type = tidak perlu
 Body request = tidak perlu
 endpoint = /api/users/:user_id/videos
